@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import { App } from '../system/App';
+import Matter from "matter-js";
 
 export class Platform {
     constructor(rows, cols, x) {
@@ -13,6 +14,13 @@ export class Platform {
 
         this.dx = App.config.platforms.moveSpeed;
         this.createBody();
+    }
+    move() {
+        if (this.body) {
+            Matter.Body.setPosition(this.body, {x: this.body.position.x + this.dx, y: this.body.position.y});
+            this.container.x = this.body.position.x - this.width / 2;
+            this.container.y = this.body.position.y - this.height / 2;
+        }
     }
     createBody() {
         // create a physical body
