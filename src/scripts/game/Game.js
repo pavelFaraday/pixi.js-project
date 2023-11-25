@@ -49,6 +49,17 @@ export class Game extends Scene {
         this.container.on("pointerdown", () => {
             this.hero.startJump();
         });
+        this.hero.sprite.once("die", () => {
+            App.scenes.start("Game");
+        });
+    }
+    destroy() {
+        Matter.Events.off(App.physics, 'collisionStart', this.onCollisionStart.bind(this));
+        App.app.ticker.remove(this.update, this);
+        this.bg.destroy();
+        this.hero.destroy();
+        this.platfroms.destroy();
+        this.labelScore.destroy();
     }
     createBackground() {
         this.bg = new Background();

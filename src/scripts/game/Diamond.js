@@ -22,4 +22,12 @@ export class Diamond {
         this.body.isSensor = true;
         Matter.World.add(App.physics.world, this.body);
     }
+    destroy() {
+        if (this.sprite) {
+            App.app.ticker.remove(this.update, this);
+            Matter.World.remove(App.physics.world, this.body);
+            this.sprite.destroy();
+            this.sprite = null;
+        }
+    }
 }
