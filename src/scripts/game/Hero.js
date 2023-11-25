@@ -13,10 +13,15 @@ export class Hero {
         this.jumpIndex = 0;
     }
     startJump() {
-        if (this.jumpIndex < this.maxJumps) {
+        if (this.platform || this.jumpIndex === 1) {
             ++this.jumpIndex;
+            this.platform = null;
             Matter.Body.setVelocity(this.body, { x: 0, y: -this.dy });
         }
+    }
+    stayOnPlatform(platform) {
+        this.platform = platform;
+        this.jumpIndex = 0;
     }
     createBody() {
         this.body = Matter.Bodies.rectangle(this.sprite.x + this.sprite.width / 2, this.sprite.y + this.sprite.height / 2, this.sprite.width, this.sprite.height, {friction: 0});
