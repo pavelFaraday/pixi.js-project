@@ -3,6 +3,17 @@ import { Tools } from "../system/Tools";
 
 export const Config = {
     bgSpeed: 2,
+    score: {
+        x: 10,
+        y: 10,
+        anchor: 0,
+        style: {
+            fontFamily: "Verdana",
+            fontWeight: "bold",
+            fontSize: 44,
+            fill: ["#FF7F50"]
+        }
+    },
     diamonds: {
         chance: 0.4,
         offset: {

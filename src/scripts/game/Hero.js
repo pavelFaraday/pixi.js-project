@@ -11,6 +11,15 @@ export class Hero {
         this.dy = App.config.hero.jumpSpeed;
         this.maxJumps = App.config.hero.maxJumps;
         this.jumpIndex = 0;
+        this.score = 0;
+    }
+    collectDiamond(diamond) {
+        ++this.score;
+        Matter.World.remove(App.physics.world, diamond.body);
+        diamond.sprite.destroy();
+        diamond.sprite = null;
+        this.sprite.emit("score");
+        diamond.destroy();
     }
     startJump() {
         if (this.platform || this.jumpIndex === 1) {
