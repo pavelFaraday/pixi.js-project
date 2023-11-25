@@ -4,6 +4,7 @@ import { Tools } from "../system/Tools";
 export const Config = {
     bgSpeed: 2,
     platforms: {
+        moveSpeed: -1.5,
         ranges: {
             rows: {
                 min: 2,
