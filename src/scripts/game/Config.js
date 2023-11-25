@@ -3,6 +3,13 @@ import { Tools } from "../system/Tools";
 
 export const Config = {
     bgSpeed: 2,
+    diamonds: {
+        chance: 0.4,
+        offset: {
+            min: 100,
+            max: 400
+        }
+    },
     platforms: {
         moveSpeed: -1.5,
         ranges: {
