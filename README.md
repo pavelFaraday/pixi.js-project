@@ -1,5 +1,5 @@
-# PIXI project template
+# Game - PIXI.js 
 
-Tutorial: https://gamedev.land/pixi_project_template/
+
 
 
